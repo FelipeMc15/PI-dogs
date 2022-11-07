@@ -1,14 +1,21 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchDogs } from "../../store/actions";
+import { dogs, fetchDogs } from "../../store/actions";
 import Dog from "../Dog";
+import Buttons from "./components/pagination.jsx";
 
 export default function Dogs() {
   let dog = useSelector((state) => state.filteredDogs);
+  let page = useSelector((state) => state.page);
   let dispatch = useDispatch();
+
   useEffect(() => {
-    dispatch(fetchDogs());
-  }, []);
+    dispatch(fetchDogs(page));
+  }, [dispatch, page]);
+
+  useEffect(() => {
+    dispatch(dogs());
+  }, [dispatch]);
 
   return (
     <div>
@@ -19,9 +26,11 @@ export default function Dogs() {
                 <Dog
                   id={item.id}
                   name={item.name}
-                  height={item.height}
-                  weight={item.weight}
-                  years={item.years}
+                  weight={
+                    item.weight
+                      ? item.weight
+                      : `${item.weight_min} - ${item.weight_max}`
+                  }
                   image={item.image}
                   temperament={item.temperament || item.temperaments}
                 />
@@ -29,6 +38,7 @@ export default function Dogs() {
             );
           })
         : "Loading..."}
+      <Buttons page={page} />
     </div>
   );
 }

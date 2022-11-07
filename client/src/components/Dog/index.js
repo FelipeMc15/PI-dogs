@@ -12,14 +12,9 @@ export default function Dog({
   return (
     <div>
       <Link to={`/${id}`}>
-        <div>Name: {name}</div>
         <img src={image} alt="img" />
         <br />
-        <div>Height: {height}</div>
-        <br />
-        <div>Weight: {weight}</div>
-        <br />
-        <div>Years: {years}</div>
+        <div>Name: {name}</div>
         <br />
         <div>
           Temperaments:{" "}
@@ -28,6 +23,11 @@ export default function Dog({
             : temperament}
           .
         </div>
+        <br />
+        <div>Weight: {weight}</div>
+        <br />
+        <div>{height ? `Height:  ${height} ${(<br />)}` : ""}</div>
+        <div>{years ? `Life Span: ${years} ${(<br />)}` : ""}</div>
         <br />
       </Link>
     </div>

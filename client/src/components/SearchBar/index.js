@@ -21,7 +21,7 @@ export default function SearchBar() {
     <div>
       <form onSubmit={handleSubmit}>
         <input type="text" onChange={handleChange} value={search} />
-        <input type="submit" value="Buscar" />
+        <input type="submit" value="Search" />
       </form>
     </div>
   );

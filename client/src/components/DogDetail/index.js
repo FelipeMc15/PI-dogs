@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 export default function DogDetail() {
   const [dog, setDog] = useState(null);
@@ -10,14 +10,6 @@ export default function DogDetail() {
       setDog(res.data)
     );
   }, []);
-
-  let history = useHistory();
-
-  const onClick = (e) => {
-    history.push({
-      pathname: "/",
-    });
-  };
 
   let searchTemperaments =
     dog && dog.temperaments
@@ -30,21 +22,29 @@ export default function DogDetail() {
     <div>
       {dog ? (
         <>
-          <h3>{dog[0] ? dog[0].name : dog.name}</h3>
           <img src={dog[0] ? dog[0].image : dog.image} alt="Imagen" />
-          <div>Height: {dog[0] ? dog[0].height : dog.height}</div>
+          <h3>{dog[0] ? dog[0].name : dog.name}</h3>
+          <div>
+            Height:{" "}
+            {dog[0] ? dog[0].height : `${dog.height_min} - ${dog.height_max}`}
+          </div>
           <br />
-          <div>Weight: {dog[0] ? dog[0].weight : dog.weight}</div>
+          <div>
+            Weight:{" "}
+            {dog[0] ? dog[0].weight : `${dog.weight_min} - ${dog.weight_max}`}
+          </div>
           <br />
-          <div>Years: {dog[0] ? dog[0].years : dog.years}</div>
+          <div>
+            Life span:{" "}
+            {dog[0]
+              ? dog[0].life_span
+              : `${dog.years_min} - ${dog.years_max} years`}
+          </div>
           <br />
           <div>
             Temperaments:{" "}
             {dog[0] ? dog[0].temperament : searchTemperaments.join(", ")}
           </div>
-          <br />
-          <button onClick={onClick}>Home</button>
-          <br />
           <br />
         </>
       ) : (
