@@ -1,0 +1,28 @@
+.detailDog {
+  display: flex;
+  margin-top: 2rem;
+  width: 90%;
+  img {
+    width: 400px;
+    height: 320px;
+  }
+  div {
+    background-color: $buttons-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    color: #000000;
+    padding: 2rem;
+    text-align: center;
+    p {
+      margin: auto;
+      font-size: 22px;
+    }
+    h2 {
+      color: $letter-color;
+      font-size: 40px;
+      text-align: center;
+      text-shadow: 2px 2px 0px #b0671d, 5px 4px 0px rgba(0, 0, 0, 0.15);
+    }
+  }
+}

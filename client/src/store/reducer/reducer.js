@@ -9,7 +9,8 @@ import {
   FILTER_API,
   FILTER_DB,
   DOGS,
-} from "../actions";
+  PAGE,
+} from "../actions/actions";
 
 const initialState = {
   dogs: [],
@@ -32,7 +33,7 @@ export default function reducer(state = initialState, action) {
     case SEARCH_DOGS:
       return {
         ...state,
-        filteredDogs: { data: action.payload },
+        filteredDogs: action.payload,
       };
     case NEXT:
       return {
@@ -46,7 +47,7 @@ export default function reducer(state = initialState, action) {
       };
     case WEIGHT_FILTER:
       if (action.payload === "Heavier") {
-        let data = state.filteredDogs.data
+        let data = state.filteredDogs
           .map((dog) => {
             if (dog.weight) {
               let weightData = dog.weight.split(" - ");
@@ -66,10 +67,10 @@ export default function reducer(state = initialState, action) {
           });
         return {
           ...state,
-          filteredDogs: { data: data },
+          filteredDogs: data,
         };
       } else {
-        let data = state.filteredDogs.data
+        let data = state.filteredDogs
           .map((dog) => {
             if (dog.weight) {
               let weightData = dog.weight.split(" - ");
@@ -89,36 +90,57 @@ export default function reducer(state = initialState, action) {
           });
         return {
           ...state,
-          filteredDogs: { data: data },
+          filteredDogs: data,
         };
       }
     case SORT:
-      let orderedDogs = state.filteredDogs.data.reverse();
+      let orderedDogs = [...state.filteredDogs];
+
+      orderedDogs = orderedDogs.sort((a, b) => {
+        if (a.name < b.name) {
+          return action.payload === "ASCENDENT" ? 1 : -1;
+        }
+        if (a.name > b.name) {
+          return action.payload === "DESCENDENT" ? 1 : -1;
+        }
+        return 0;
+      });
       return {
         ...state,
-        filteredDogs: { data: orderedDogs },
+        filteredDogs: orderedDogs,
       };
     case FILTER_TEMPERAMENTS:
       return {
         ...state,
-        filteredDogs: { data: action.payload },
+        filteredDogs: action.payload,
       };
     case FILTER_API:
-      let apiFilter = state.dogs.data.filter((dog) => {
+      let apiFilter = state.dogs.filter((dog) => {
         return typeof dog.id === "number";
       });
       return {
         ...state,
-        filteredDogs: { data: apiFilter },
+        filteredDogs: apiFilter,
       };
     case FILTER_DB:
-      let dbFilter = state.dogs.data.filter((dog) => {
+      let dbFilter = state.dogs.filter((dog) => {
         return typeof dog.id == "string";
       });
-      console.log(dbFilter);
+      if (dbFilter.length !== 0) {
+        return {
+          ...state,
+          filteredDogs: dbFilter,
+        };
+      } else {
+        alert("No dogs in database");
+        return {
+          ...state,
+        };
+      }
+    case PAGE:
       return {
         ...state,
-        filteredDogs: { data: dbFilter },
+        page: action.payload,
       };
     default:
       return state;

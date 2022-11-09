@@ -1,7 +1,7 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { filterTemp } from "../../store/actions";
+import { filterTemp } from "../../store/actions/actions";
 
 export default function TemperamentFilter() {
   let dispatch = useDispatch();
@@ -13,10 +13,16 @@ export default function TemperamentFilter() {
 
   let handleSelect = (e) => {
     e.preventDefault();
-    let tempDogs = dog.data.filter((dog) => {
-      return dog.temperament && dog.temperament.includes(e.target.value);
-    });
-
+    let tempDogs =
+      dog.data &&
+      dog.data.filter((dog) => {
+        return dog.temperament
+          ? dog.temperament.includes(e.target.value)
+          : dog.temperaments &&
+              dog.temperaments.find((item) =>
+                item.name.includes(e.target.value)
+              );
+      });
     setDog({
       ...dog,
       data: tempDogs,

@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@100;300;400;600&display=swap");
+
+@import "variables";
+@import "cards";
+@import "detailDogs";
+@import "form";
+@import "navbar";
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Oswald", sans-serif;
+}
+body {
+  background-color: $background-color;
+}

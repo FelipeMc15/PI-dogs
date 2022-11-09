@@ -1,0 +1,27 @@
+.img {
+  object-fit: cover;
+  width: 100%;
+  height: 615px;
+}
+.start {
+  width: 100%;
+  height: 100%;
+}
+.start h1 {
+  color: #202020;
+  font-size: 60px;
+  position: absolute;
+  top: -20px;
+  left: 44%;
+  text-shadow: 2px 2px 0px #f9c536, 5px 4px 0px rgba(0, 0, 0, 0.15);
+}
+.start a {
+  position: absolute;
+  top: 83%;
+  left: 40%;
+  color: #b0671d;
+}
+.start a svg {
+  font-size: 34px;
+  color: #333333;
+}

@@ -1,0 +1,9 @@
+.img {
+  position: absolute;
+  left: 30%;
+  top: 40%;
+  margin-top: -160px;
+  margin-bottom: -170px;
+  width: 500px;
+  height: 500px;
+}

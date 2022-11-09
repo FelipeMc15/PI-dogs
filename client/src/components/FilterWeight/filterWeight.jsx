@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { filterPeso } from "../../store/actions";
+import { filterPeso } from "../../store/actions/actions";
 
 export default function WeightFilter() {
   let dispatch = useDispatch();

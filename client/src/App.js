@@ -1,23 +1,29 @@
-import "./App.css";
-import Home from "./components/Home";
-import AddDog from "./components/AddDog";
-import DogDetail from "./components/DogDetail";
-import NavBar from "./components/NavBar";
+import Home from "./components/Home/home.jsx";
+import AddDog from "./components/AddDog/addDog.jsx";
+import DogDetail from "./components/DogDetail/dogDetails.jsx";
+import NavBar from "./components/NavBar/navBar.jsx";
 import { Route, Switch } from "react-router-dom";
+import Start from "./components/LandingPage/landingPage";
+import "./styles/styles.scss";
 
 function App() {
   return (
     <div className="App">
-      <NavBar />
       <Switch>
-        <Route path="/add">
+        <Route path="/home/add">
+          <NavBar />
           <AddDog />
         </Route>
-        <Route exact path="/:id">
+        <Route exact path="/home/:id">
+          <NavBar />
           <DogDetail />
         </Route>
-        <Route path="/">
+        <Route path="/home">
+          <NavBar />
           <Home />
+        </Route>
+        <Route path="/">
+          <Start />
         </Route>
       </Switch>
     </div>

@@ -1,12 +1,11 @@
-import { useDispatch, useSelector } from "react-redux";
-import { api, database, fetchDogs } from "../../store/actions";
+import { useDispatch } from "react-redux";
+import { api, database, fetchDogs } from "../../store/actions/actions";
 
 export default function FilterDbApi() {
   let dispatch = useDispatch();
-  let page = useSelector((state) => state.page);
 
   const handleClick = (fn) => {
-    dispatch(fn(page));
+    dispatch(fn());
   };
 
   return (

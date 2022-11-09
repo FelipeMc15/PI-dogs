@@ -1,5 +1,7 @@
 import { useDispatch } from "react-redux";
-import { sort } from "../../store/actions";
+import { sort } from "../../store/actions/actions";
+export const ASCENDENT = "ASCENDENT";
+export const DESCENDENT = "DESCENDENT";
 
 export default function Order() {
   let dispatch = useDispatch();
@@ -10,8 +12,8 @@ export default function Order() {
 
   return (
     <select name="select" onChange={handleChange}>
-      <option>Ascendent</option>
-      <option>Descendent</option>
+      <option value={ASCENDENT}>Ascendent</option>
+      <option value={DESCENDENT}>Descendent</option>
     </select>
   );
 }

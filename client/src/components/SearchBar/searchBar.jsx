@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { searchDogs } from "../../store/actions";
+import { searchDogs } from "../../store/actions/actions";
+import { ImSearch } from "react-icons/im";
 
 export default function SearchBar() {
   const [search, setSearch] = useState("");
@@ -21,7 +22,8 @@ export default function SearchBar() {
     <div>
       <form onSubmit={handleSubmit}>
         <input type="text" onChange={handleChange} value={search} />
-        <input type="submit" value="Search" />
+        <input type="submit" value="search" />
+        <ImSearch />
       </form>
     </div>
   );

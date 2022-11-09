@@ -10,13 +10,14 @@ export const FETCH_DOGS_TEMP = "FILTER_DOGS_TEMP";
 export const FILTER_API = "FILTER_API";
 export const FILTER_DB = "FILTER_DB";
 export const DOGS = "DOGS";
+export const PAGE = "PAGE";
 
-export function fetchDogs(page) {
+export function fetchDogs() {
   return function (dispatch) {
-    axios.get(`http://localhost:3001/api/dogs?page=${page}`).then((dogs) => {
+    axios.get(`http://localhost:3001/api/dogs`).then((dogs) => {
       dispatch({
         type: FETCH_DOGS,
-        payload: dogs,
+        payload: dogs.data,
       });
     });
   };
@@ -38,9 +39,10 @@ export function searchDogs(search) {
   };
 }
 
-export function sort() {
+export function sort(order) {
   return {
     type: SORT,
+    payload: order,
   };
 }
 
@@ -109,8 +111,15 @@ export function dogs() {
     axios.get(`http://localhost:3001/api/dogs/temps`).then((dogs) => {
       dispatch({
         type: DOGS,
-        payload: dogs,
+        payload: dogs.data,
       });
     });
+  };
+}
+
+export function dataPage(payload) {
+  return {
+    type: PAGE,
+    payload: payload,
   };
 }

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { postDog } from "../../store/actions";
+import { postDog } from "../../store/actions/actions";
 
 function validateForm(input) {
   let errors = {};
@@ -152,130 +152,132 @@ export default function AddDog() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>Name: </label>
-      <input
-        name="name"
-        value={dog.name}
-        type="text"
-        onChange={(e) => handleChange(e)}
-      />
-      <div>
-        <p>{errors.name}</p>
-      </div>
-      <label>Height </label>
-      <br />
-      <label>Min </label>
-      <input
-        name="height_min"
-        value={dog.height_min}
-        type="number"
-        onChange={(e) => handleChange(e)}
-        placeholder="10"
-        required
-      />
-      <div>
-        <p>{errors.height_min}</p>
-      </div>
-      <label>Max </label>
-      <input
-        name="height_max"
-        value={dog.height_max}
-        type="number"
-        onChange={(e) => handleChange(e)}
-        placeholder="20"
-        required
-      />
-      <div>
-        <p>{errors.height_max}</p>
-      </div>
-      <label>Weight </label>
-      <br />
-      <label>Min </label>
-      <input
-        name="weight_min"
-        value={dog.weight_min}
-        type="number"
-        onChange={(e) => handleChange(e)}
-        placeholder="10"
-        required
-      />
-      <div>
-        <p>{errors.weight_min}</p>
-      </div>
-      <label>Max </label>
-      <input
-        name="weight_max"
-        value={dog.weight_max}
-        type="number"
-        onChange={(e) => handleChange(e)}
-        placeholder="20"
-        required
-      />
-      <div>
-        <p>{errors.weight_max}</p>
-      </div>
-      <label>Life Span</label>
-      <br />
-      <label>Min </label>
-      <input
-        name="years_min"
-        value={dog.years_min}
-        type="number"
-        onChange={handleChange}
-        placeholder="10"
-        required
-      />
-      <div>
-        <p>{errors.years_min}</p>
-      </div>
-      <label>Max </label>
-      <input
-        name="years_max"
-        value={dog.years_max}
-        type="number"
-        onChange={handleChange}
-        placeholder="20"
-        required
-      />
-      <div>
-        <p>{errors.years_max}</p>
-      </div>
-      <label>Img: </label>
-      <input
-        name="image"
-        value={dog.image}
-        type="text"
-        placeholder="http://myimageontheweb.com"
-        onChange={(e) => handleChange(e)}
-        required
-      />
-      <div>
-        <p>{errors.image}</p>
-      </div>
-      <label>Temperaments: </label>
-      <select onChange={(e) => handleSelect(e)}>
-        {temp &&
-          temp.map((tem) => {
-            return (
-              <option key={tem.name} name={tem.name}>
-                {tem.name}
-              </option>
-            );
-          })}
-      </select>
-      <h4>You have selected that:</h4>
-      {dog.temperament && dog.temperament.length !== 0
-        ? dog.temperament.map((el) => (
-            <div key={el}>
-              <button onClick={() => handleDelete(el)}>{el}</button>
-            </div>
-          ))
-        : "Select a temperament"}
-      <br />
-      <br />
-      <input type="submit" value="Create" />
-      <br />
-    </form>
+    <div className="container_form">
+      <form onSubmit={handleSubmit}>
+        <label>Name: </label>
+        <input
+          name="name"
+          value={dog.name}
+          type="text"
+          onChange={(e) => handleChange(e)}
+        />
+        <div>
+          <p>{errors.name}</p>
+        </div>
+        <label>Height </label>
+        <br />
+        <label>Min </label>
+        <input
+          name="height_min"
+          value={dog.height_min}
+          type="number"
+          onChange={(e) => handleChange(e)}
+          placeholder="10"
+          required
+        />
+        <div>
+          <p>{errors.height_min}</p>
+        </div>
+        <label>Max </label>
+        <input
+          name="height_max"
+          value={dog.height_max}
+          type="number"
+          onChange={(e) => handleChange(e)}
+          placeholder="20"
+          required
+        />
+        <div>
+          <p>{errors.height_max}</p>
+        </div>
+        <label>Weight </label>
+        <br />
+        <label>Min </label>
+        <input
+          name="weight_min"
+          value={dog.weight_min}
+          type="number"
+          onChange={(e) => handleChange(e)}
+          placeholder="10"
+          required
+        />
+        <div>
+          <p>{errors.weight_min}</p>
+        </div>
+        <label>Max </label>
+        <input
+          name="weight_max"
+          value={dog.weight_max}
+          type="number"
+          onChange={(e) => handleChange(e)}
+          placeholder="20"
+          required
+        />
+        <div>
+          <p>{errors.weight_max}</p>
+        </div>
+        <label>Life Span</label>
+        <br />
+        <label>Min </label>
+        <input
+          name="years_min"
+          value={dog.years_min}
+          type="number"
+          onChange={handleChange}
+          placeholder="10"
+          required
+        />
+        <div>
+          <p>{errors.years_min}</p>
+        </div>
+        <label>Max </label>
+        <input
+          name="years_max"
+          value={dog.years_max}
+          type="number"
+          onChange={handleChange}
+          placeholder="20"
+          required
+        />
+        <div>
+          <p>{errors.years_max}</p>
+        </div>
+        <label>Img: </label>
+        <input
+          name="image"
+          value={dog.image}
+          type="text"
+          placeholder="http://myimageontheweb.com"
+          onChange={(e) => handleChange(e)}
+          required
+        />
+        <div>
+          <p>{errors.image}</p>
+        </div>
+        <label>Temperaments: </label>
+        <select onChange={(e) => handleSelect(e)}>
+          {temp &&
+            temp.map((tem) => {
+              return (
+                <option key={tem.name} name={tem.name}>
+                  {tem.name}
+                </option>
+              );
+            })}
+        </select>
+        <h4>You have selected that:</h4>
+        {dog.temperament && dog.temperament.length !== 0
+          ? dog.temperament.map((el) => (
+              <div key={el}>
+                <button onClick={() => handleDelete(el)}>{el}</button>
+              </div>
+            ))
+          : "Select a temperament"}
+        <br />
+        <br />
+        <input type="submit" value="Create" />
+        <br />
+      </form>
+    </div>
   );
 }

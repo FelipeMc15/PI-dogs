@@ -1,0 +1,123 @@
+.container_form {
+  display: flex;
+  justify-content: space-evenly;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 85vh;
+  form {
+    background-color: #00acb5ad;
+    width: 35%;
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+    padding: 1rem;
+    input {
+      margin: 0.4rem;
+      width: 10rem;
+      height: 1.7rem;
+      text-align: center;
+    }
+
+    select {
+      width: 10rem;
+      height: 1.7rem;
+    }
+
+    button {
+      width: 5rem;
+    }
+
+    .input_num {
+      width: 3rem;
+    }
+    .errorInput {
+      border: 1px solid red;
+    }
+    .errorsText {
+      color: rgb(164, 0, 0);
+      font-size: 0.8rem;
+    }
+    .input_life-span {
+      width: 4;
+    }
+    .deleteTemp {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+    .container_selectedTemps {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      margin-top: 0.2rem;
+      button {
+        margin: 1px;
+        width: auto;
+        border: 0;
+        background-color: rgba(57, 62, 70, 0.628);
+        display: flex;
+        align-content: center;
+        border-radius: 5px;
+        justify-content: center;
+        padding-left: 2px;
+        transition: all 0.3s;
+        &:hover {
+          background-color: $background-color;
+          transform: scale(1.05);
+          .selectedTemp {
+            color: black;
+          }
+        }
+        img {
+          align-self: center;
+        }
+        .selectedTemp {
+          padding: 6px;
+          color: white;
+          font-weight: 300;
+          border-radius: 1rem;
+          margin: 0;
+
+          font-size: 1rem;
+        }
+      }
+    }
+    .form_buttons {
+      align-self: flex-end;
+      justify-self: flex-end;
+      display: flex;
+      justify-content: flex-end;
+      button {
+        border: 0;
+        width: 7rem;
+        height: 2rem;
+        margin: 2px;
+        background-color: $principa-color;
+        color: white;
+        font-size: 1.1rem;
+        border-radius: 5px;
+        transition: all 0.3s;
+        &:hover {
+          background-color: $buttons-color;
+          border: 1px solid rgba(0, 0, 0, 0.391);
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+  .preview {
+    width: 50%;
+    height: 40%;
+    background-color: #00acb5e0;
+    display: flex;
+    margin-top: 1rem;
+    .img_preview {
+      width: 40%;
+      height: 100%;
+    }
+  }
+}
