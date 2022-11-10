@@ -1,0 +1,43 @@
+.order {
+  position: absolute;
+  top: 85px;
+  left: 497px;
+}
+
+.weight {
+  position: absolute;
+  top: 85px;
+  left: 330px;
+  right: 770px;
+}
+
+.apidb {
+  position: absolute;
+  top: 85px;
+  left: 24px;
+}
+
+.temps {
+  position: absolute;
+  top: 279px;
+  right: 45px;
+}
+
+.refresh {
+  position: absolute;
+  top: 223px;
+  right: 45px;
+}
+
+.text_temperament {
+  font-size: 16px;
+  border: 1px solid $buttons-color;
+  border-radius: 5px;
+  width: 140px;
+  position: absolute;
+  top: 335px;
+  right: 54px;
+  text-align: center;
+  background-color: $principa-color;
+  color: $letter-color;
+}

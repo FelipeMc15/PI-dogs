@@ -2,12 +2,12 @@
   position: absolute;
   justify-content: center;
   text-align: center;
-  top: 8.5rem;
+  top: 9.5rem;
 }
 
 .button {
   border: 0;
-  margin: 10px 2px;
+  margin: 2px 4.9px;
   background-color: #f9c536;
   color: #000000;
   font-size: 1rem;

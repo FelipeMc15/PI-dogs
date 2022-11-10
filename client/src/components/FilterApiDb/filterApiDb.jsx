@@ -9,10 +9,24 @@ export default function FilterDbApi() {
   };
 
   return (
-    <div>
-      <button onClick={() => handleClick(fetchDogs)}>All</button>
-      <button onClick={() => handleClick(api)}>Api</button>
-      <button onClick={() => handleClick(database)}>Database</button>
+    <div className="apidb">
+      <button onClick={(e) => handleClick(fetchDogs, e)} className="button">
+        All
+      </button>
+      <button
+        onClick={(e) => handleClick(api, e)}
+        className={"button"}
+        id="Api"
+      >
+        Api
+      </button>
+      <button
+        onClick={(e) => handleClick(database, e)}
+        className={"button"}
+        id="Database"
+      >
+        Database
+      </button>
     </div>
   );
 }

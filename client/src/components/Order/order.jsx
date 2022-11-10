@@ -11,9 +11,11 @@ export default function Order() {
   };
 
   return (
-    <select name="select" onChange={handleChange}>
-      <option value={ASCENDENT}>Ascendent</option>
-      <option value={DESCENDENT}>Descendent</option>
-    </select>
+    <div className="order">
+      <select name="select" onChange={handleChange} className="button">
+        <option value={ASCENDENT}>Ascendent</option>
+        <option value={DESCENDENT}>Descendent</option>
+      </select>
+    </div>
   );
 }

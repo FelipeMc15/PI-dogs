@@ -5,6 +5,10 @@
 @import "detailDogs";
 @import "form";
 @import "navbar";
+@import "searchBar";
+@import "buttons";
+@import "order";
+@import "home";
 
 * {
   margin: 0;
@@ -13,4 +17,6 @@
 }
 body {
   background-color: $background-color;
+  height: 100%;
+  width: 100%;
 }

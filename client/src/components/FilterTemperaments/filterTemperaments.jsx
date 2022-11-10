@@ -50,26 +50,33 @@ export default function TemperamentFilter() {
   };
 
   return (
-    <div>
-      <select onChange={(e) => handleSelect(e)}>
-        <option>Temperaments</option>
-        {temp &&
-          temp.map((tem) => {
-            return (
-              <option key={tem.name} name={tem.name}>
-                {tem.name}
-              </option>
-            );
-          })}
-      </select>
-
-      {dog.temperament && dog.temperament.length !== 0 ? (
-        dog.temperament.map((el) => <div key={el}>{el}</div>)
-      ) : (
-        <br />
-      )}
-
-      <button onClick={handleDelete}>Refresh</button>
+    <div className="all_temps">
+      <div className="temps">
+        <select onChange={(e) => handleSelect(e)} className="button">
+          <option>Temperaments</option>
+          {temp &&
+            temp.map((tem) => {
+              return (
+                <option key={tem.name} name={tem.name}>
+                  {tem.name}
+                </option>
+              );
+            })}
+        </select>
+      </div>
+      <div className="text_temperament" placeholder="Search...">
+        <p>Selected:</p>
+        {dog.temperament && dog.temperament.length !== 0 ? (
+          dog.temperament.map((el) => <div key={el}>{el}</div>)
+        ) : (
+          <br />
+        )}
+      </div>
+      <div className="refresh">
+        <button onClick={handleDelete} className="buttonRefresh">
+          Refresh
+        </button>
+      </div>
     </div>
   );
 }

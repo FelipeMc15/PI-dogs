@@ -1,0 +1,51 @@
+.button {
+  background: $principa-color;
+  border: 1px solid $buttons-color;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  color: $letter-color;
+  cursor: pointer;
+  font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
+  font-size: 16px;
+  padding: 6px 8px;
+  margin: 10px;
+}
+
+.button :active {
+  background: $letter-color;
+  border: 1px solid $buttons-color;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  color: $principa-color;
+  cursor: pointer;
+  font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
+  font-size: 16px;
+  padding: 6px 8px;
+  margin: 10px;
+}
+
+.buttonRefresh {
+  background: #e10f0f;
+  border: 1px solid #e10f0f;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: $letter-color;
+  cursor: pointer;
+  display: inline-block;
+  font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 16px;
+  min-height: 40px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  margin: 10px;
+}

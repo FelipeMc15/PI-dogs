@@ -1,123 +1,121 @@
-.container_form {
+.container_creation {
   display: flex;
   justify-content: space-evenly;
-
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: 85vh;
-  form {
-    background-color: #00acb5ad;
-    width: 35%;
-    height: 75%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 1rem;
-    padding: 1rem;
-    input {
-      margin: 0.4rem;
-      width: 10rem;
-      height: 1.7rem;
-      text-align: center;
-    }
+  height: 100%;
+  background-image: url("./../img/img_form.png");
+  text-align: center;
+}
 
-    select {
-      width: 10rem;
-      height: 1.7rem;
-    }
+.form_container {
+  width: 100%;
+  min-width: 700px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+form {
+  width: 650px;
+}
+.button_input {
+  cursor: pointer;
+  line-height: 2.5;
+  width: 75px;
+  background-color: $buttons-color;
+  border-radius: 3px;
+}
+.button_input:hover {
+  transform: scale(1.05, 1.05);
+}
 
-    button {
-      width: 5rem;
-    }
+.section {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 8px;
+  padding: 8px;
+  border: 1px solid $principa-color;
+  border-radius: 15px;
+  gap: 5px;
+  box-shadow: 6px 7px 8px -6px $secondary-color;
+}
 
-    .input_num {
-      width: 3rem;
-    }
-    .errorInput {
-      border: 1px solid red;
-    }
-    .errorsText {
-      color: rgb(164, 0, 0);
-      font-size: 0.8rem;
-    }
-    .input_life-span {
-      width: 4;
-    }
-    .deleteTemp {
-      width: 1.5rem;
-      height: 1.5rem;
-    }
-    .container_selectedTemps {
-      display: flex;
-      flex-wrap: wrap;
-      width: 100%;
-      margin-top: 0.2rem;
-      button {
-        margin: 1px;
-        width: auto;
-        border: 0;
-        background-color: rgba(57, 62, 70, 0.628);
-        display: flex;
-        align-content: center;
-        border-radius: 5px;
-        justify-content: center;
-        padding-left: 2px;
-        transition: all 0.3s;
-        &:hover {
-          background-color: $background-color;
-          transform: scale(1.05);
-          .selectedTemp {
-            color: black;
-          }
-        }
-        img {
-          align-self: center;
-        }
-        .selectedTemp {
-          padding: 6px;
-          color: white;
-          font-weight: 300;
-          border-radius: 1rem;
-          margin: 0;
+.sidebar_box > h4 {
+  width: 100%;
+}
+.selectedItems {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 5px;
+  margin: 5px 8px;
+  padding: 3px 10px;
+}
 
-          font-size: 1rem;
-        }
-      }
-    }
-    .form_buttons {
-      align-self: flex-end;
-      justify-self: flex-end;
-      display: flex;
-      justify-content: flex-end;
-      button {
-        border: 0;
-        width: 7rem;
-        height: 2rem;
-        margin: 2px;
-        background-color: $principa-color;
-        color: white;
-        font-size: 1.1rem;
-        border-radius: 5px;
-        transition: all 0.3s;
-        &:hover {
-          background-color: $buttons-color;
-          border: 1px solid rgba(0, 0, 0, 0.391);
-          transform: scale(1.05);
-        }
-      }
-    }
-  }
-  .preview {
-    width: 50%;
-    height: 40%;
-    background-color: #00acb5e0;
-    display: flex;
-    margin-top: 1rem;
-    .img_preview {
-      width: 40%;
-      height: 100%;
-    }
-  }
+input {
+  width: 50%;
+  line-height: 1.8;
+  color: $letter-color;
+  background-color: $principa-color;
+  border-radius: 5px;
+  text-align: center;
+}
+input::placeholder {
+  color: $letter-color;
+  opacity: 0.8;
+}
+.error {
+  font-size: 10px;
+  color: red;
+}
+.buttonSection {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+option {
+  line-height: 2;
+}
+
+.styled_select {
+  background-color: $principa-color;
+  color: $letter-color;
+  border-radius: 3px;
+}
+
+.button_eliminate {
+  cursor: pointer;
+  background-color: $buttons-color;
+  border-radius: 3px;
+  height: 25px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+h4 {
+  color: #285db3;
+  font-weight: 800;
+  text-shadow: 1px 0px 1px $secondary-color;
+}
+
+.text_label {
+  color: #285db3;
+  font-weight: 800;
+  text-shadow: 1px 0px 1px $secondary-color;
+}
+
+.text_temp {
+  color: #285db3;
+  font-weight: 800;
+  text-shadow: 1px 0px 1px $secondary-color;
 }

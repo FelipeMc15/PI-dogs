@@ -10,8 +10,8 @@ export default function WeightFilter() {
   };
 
   return (
-    <div>
-      <select onChange={(e) => handleSelect(e)}>
+    <div className="weight">
+      <select onChange={(e) => handleSelect(e)} className="button">
         <option key="heavier" name="heavier">
           Heavier
         </option>

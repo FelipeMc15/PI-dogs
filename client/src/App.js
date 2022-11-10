@@ -4,6 +4,7 @@ import DogDetail from "./components/DogDetail/dogDetails.jsx";
 import NavBar from "./components/NavBar/navBar.jsx";
 import { Route, Switch } from "react-router-dom";
 import Start from "./components/LandingPage/landingPage";
+import SearchBar from "./components/SearchBar/searchBar.jsx";
 import "./styles/styles.scss";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         </Route>
         <Route path="/home">
           <NavBar />
+          <SearchBar />
           <Home />
         </Route>
         <Route path="/">

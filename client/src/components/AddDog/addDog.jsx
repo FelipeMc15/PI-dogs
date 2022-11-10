@@ -105,11 +105,12 @@ export default function AddDog() {
   }, []);
 
   let handleSelect = (e) => {
-    e.preventDefault();
-    setDog({
-      ...dog,
-      temperament: [...dog.temperament, e.target.value],
-    });
+    dog.temperament.includes(e.target.value)
+      ? setDog({ ...dog })
+      : setDog({
+          ...dog,
+          temperament: [...dog.temperament, e.target.value],
+        });
   };
 
   const handleSubmit = (e) => {
@@ -139,7 +140,7 @@ export default function AddDog() {
     }
     setTimeout(() => {
       history.push({
-        pathname: "/",
+        pathname: "/home",
       });
     }, 200);
   };
@@ -152,132 +153,144 @@ export default function AddDog() {
   }
 
   return (
-    <div className="container_form">
-      <form onSubmit={handleSubmit}>
-        <label>Name: </label>
-        <input
-          name="name"
-          value={dog.name}
-          type="text"
-          onChange={(e) => handleChange(e)}
-        />
-        <div>
-          <p>{errors.name}</p>
-        </div>
-        <label>Height </label>
-        <br />
-        <label>Min </label>
-        <input
-          name="height_min"
-          value={dog.height_min}
-          type="number"
-          onChange={(e) => handleChange(e)}
-          placeholder="10"
-          required
-        />
-        <div>
-          <p>{errors.height_min}</p>
-        </div>
-        <label>Max </label>
-        <input
-          name="height_max"
-          value={dog.height_max}
-          type="number"
-          onChange={(e) => handleChange(e)}
-          placeholder="20"
-          required
-        />
-        <div>
-          <p>{errors.height_max}</p>
-        </div>
-        <label>Weight </label>
-        <br />
-        <label>Min </label>
-        <input
-          name="weight_min"
-          value={dog.weight_min}
-          type="number"
-          onChange={(e) => handleChange(e)}
-          placeholder="10"
-          required
-        />
-        <div>
-          <p>{errors.weight_min}</p>
-        </div>
-        <label>Max </label>
-        <input
-          name="weight_max"
-          value={dog.weight_max}
-          type="number"
-          onChange={(e) => handleChange(e)}
-          placeholder="20"
-          required
-        />
-        <div>
-          <p>{errors.weight_max}</p>
-        </div>
-        <label>Life Span</label>
-        <br />
-        <label>Min </label>
-        <input
-          name="years_min"
-          value={dog.years_min}
-          type="number"
-          onChange={handleChange}
-          placeholder="10"
-          required
-        />
-        <div>
-          <p>{errors.years_min}</p>
-        </div>
-        <label>Max </label>
-        <input
-          name="years_max"
-          value={dog.years_max}
-          type="number"
-          onChange={handleChange}
-          placeholder="20"
-          required
-        />
-        <div>
-          <p>{errors.years_max}</p>
-        </div>
-        <label>Img: </label>
-        <input
-          name="image"
-          value={dog.image}
-          type="text"
-          placeholder="http://myimageontheweb.com"
-          onChange={(e) => handleChange(e)}
-          required
-        />
-        <div>
-          <p>{errors.image}</p>
-        </div>
-        <label>Temperaments: </label>
-        <select onChange={(e) => handleSelect(e)}>
-          {temp &&
-            temp.map((tem) => {
-              return (
-                <option key={tem.name} name={tem.name}>
-                  {tem.name}
-                </option>
-              );
-            })}
-        </select>
-        <h4>You have selected that:</h4>
-        {dog.temperament && dog.temperament.length !== 0
-          ? dog.temperament.map((el) => (
-              <div key={el}>
-                <button onClick={() => handleDelete(el)}>{el}</button>
-              </div>
-            ))
-          : "Select a temperament"}
-        <br />
-        <br />
-        <input type="submit" value="Create" />
-        <br />
-      </form>
+    <div className="container_creation">
+      <div className="form_container">
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label className="text_label">Name</label>
+            <br />
+            <input
+              name="name"
+              value={dog.name}
+              type="text"
+              placeholder="Prince"
+              onChange={(e) => handleChange(e)}
+              required
+            />
+            <div>
+              <p className="error">{errors.name}</p>
+            </div>
+          </div>
+          <div className="section">
+            <label htmlFor="height" className="text_label">
+              Height
+            </label>
+            <input
+              name="height_min"
+              value={dog.height_min}
+              type="number"
+              onChange={(e) => handleChange(e)}
+              placeholder="Min"
+              required
+            />
+            <p className="error">{errors.height_min}</p>
+
+            <input
+              name="height_max"
+              value={dog.height_max}
+              type="number"
+              onChange={(e) => handleChange(e)}
+              placeholder="Max"
+              required
+            />
+            <p className="error">{errors.height_max}</p>
+          </div>
+          <div className="section">
+            <label className="text_label">Weight</label>
+            <input
+              name="weight_min"
+              value={dog.weight_min}
+              type="number"
+              onChange={(e) => handleChange(e)}
+              placeholder="Min"
+              required
+            />
+            <p className="error">{errors.weight_min}</p>
+
+            <input
+              name="weight_max"
+              value={dog.weight_max}
+              type="number"
+              onChange={(e) => handleChange(e)}
+              placeholder="Max"
+              required
+            />
+            <p className="error">{errors.weight_max}</p>
+          </div>
+          <div className="section">
+            <label className="text_label">Life Span</label>
+            <input
+              name="years_min"
+              value={dog.years_min}
+              type="number"
+              onChange={handleChange}
+              placeholder="Min"
+              required
+            />
+            <p className="error">{errors.years_min}</p>
+
+            <input
+              name="years_max"
+              value={dog.years_max}
+              type="number"
+              onChange={handleChange}
+              placeholder="Max"
+              required
+            />
+            <p className="error">{errors.years_max}</p>
+          </div>
+          <div className="section">
+            <label className="text_label">Image URL</label>
+            <input
+              type="url"
+              name="image"
+              placeholder="http://myimageontheweb.com"
+              onChange={(e) => handleChange(e)}
+            />
+            <div>
+              <p className="error">{errors.image}</p>
+            </div>
+          </div>
+          <div className="section">
+            <label className="text_temp">Temperaments</label>
+            <select
+              onChange={(e) => handleSelect(e)}
+              id=""
+              className="styled_select"
+            >
+              {temp &&
+                temp.map((tem) => {
+                  return (
+                    <option key={tem.name} name={tem.name}>
+                      {tem.name}
+                    </option>
+                  );
+                })}
+            </select>
+            <div className="selectedItems">
+              <h4>You have selected that:</h4>
+              {dog.temperament && dog.temperament.length !== 0
+                ? dog.temperament.map((el) => (
+                    <div key={el}>
+                      <button
+                        onClick={() => handleDelete(el)}
+                        className="button_eliminate"
+                      >
+                        {el}
+                      </button>
+                    </div>
+                  ))
+                : ""}
+            </div>
+          </div>
+
+          <br />
+          <div className="buttonSection">
+            <input type="submit" value="Create" className="button_input" />
+          </div>
+          <br />
+        </form>
+      </div>
     </div>
   );
 }
