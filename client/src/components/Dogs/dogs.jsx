@@ -22,6 +22,7 @@ export default function Dogs() {
           return (
             <div>
               <Dog
+                key={item.id}
                 id={item.id}
                 name={item.name}
                 weight={

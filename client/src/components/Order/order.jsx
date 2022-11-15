@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { sort } from "../../store/actions/actions";
+import { dataPage, sort } from "../../store/actions/actions";
 export const ASCENDENT = "ASCENDENT";
 export const DESCENDENT = "DESCENDENT";
 
@@ -8,6 +8,7 @@ export default function Order() {
 
   const handleChange = () => {
     dispatch(sort());
+    dispatch(dataPage(1));
   };
 
   return (

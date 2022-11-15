@@ -30,7 +30,11 @@ export default function Buttons() {
     <div className={styles.div}>
       <br />
       {boton.map((item) => (
-        <button onClick={() => pagination(item + 1)} className={styles.button}>
+        <button
+          onClick={() => pagination(item + 1)}
+          className={styles.button}
+          key={item}
+        >
           {item + 1}
         </button>
       ))}

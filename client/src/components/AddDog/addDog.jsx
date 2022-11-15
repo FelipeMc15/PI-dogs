@@ -23,6 +23,10 @@ function validateForm(input) {
     errors.weight_min = "Type a valid minimal weight number";
   } else if (!/\d{1,2}/gi.test(input.weight_min)) {
     errors.weight_min = "Weight must have min values. Example: '25'";
+  } else if (parseInt(input.weight_min) > parseInt(input.weight_max)) {
+    errors.weight_min = "The minimum must be less than the maximum";
+  } else if (errors.weight_min < 0) {
+    errors.weight_min = "The value cannot be negative";
   } else {
     errors.weight_min = "";
   }
@@ -38,6 +42,10 @@ function validateForm(input) {
     errors.height_min = "Type a valid minimal height number";
   } else if (!/\d{1,2}/gi.test(input.height_min)) {
     errors.height_min = "Height must have min values. Example: '25'";
+  } else if (parseInt(input.height_min) > parseInt(input.height_max)) {
+    errors.height_min = "The minimum must be less than the maximum";
+  } else if (parseInt(errors.height_min) < 0) {
+    errors.height_min = "The value cannot be negative";
   } else {
     errors.height_min = "";
   }
@@ -53,6 +61,8 @@ function validateForm(input) {
     errors.years_min = "Type a valid minimal life span number";
   } else if (!/\d{1,2}/gi.test(input.years_min)) {
     errors.years_min = "Height must have min values. Example: '25'";
+  } else if (parseInt(input.years_min) > parseInt(input.years_max)) {
+    errors.years_min = "The minimum must be less than the maximum";
   } else {
     errors.years_min = "";
   }
@@ -115,13 +125,22 @@ export default function AddDog() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setErrors(
+      validateForm({
+        ...dog,
+      })
+    );
+
     if (
+      errors.hasOwnProperty("name") &&
       !errors.name &&
       !errors.image &&
       !errors.weight_min &&
       !errors.height_min &&
       !errors.weight_max &&
-      !errors.height_max
+      !errors.height_max &&
+      !errors.years_min &&
+      !errors.years_max
     ) {
       dispatch(postDog(dog));
       setDog({
@@ -138,6 +157,7 @@ export default function AddDog() {
     } else {
       return alert("Something went wrong. Please try again.");
     }
+
     setTimeout(() => {
       history.push({
         pathname: "/home",
@@ -155,7 +175,7 @@ export default function AddDog() {
   return (
     <div className="container_creation">
       <div className="form_container">
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="formbox">
           <div>
             <label className="text_label">Name</label>
             <br />
@@ -165,7 +185,6 @@ export default function AddDog() {
               type="text"
               placeholder="Prince"
               onChange={(e) => handleChange(e)}
-              required
             />
             <div>
               <p className="error">{errors.name}</p>
@@ -181,7 +200,6 @@ export default function AddDog() {
               type="number"
               onChange={(e) => handleChange(e)}
               placeholder="Min"
-              required
             />
             <p className="error">{errors.height_min}</p>
 
@@ -191,7 +209,6 @@ export default function AddDog() {
               type="number"
               onChange={(e) => handleChange(e)}
               placeholder="Max"
-              required
             />
             <p className="error">{errors.height_max}</p>
           </div>
@@ -203,7 +220,6 @@ export default function AddDog() {
               type="number"
               onChange={(e) => handleChange(e)}
               placeholder="Min"
-              required
             />
             <p className="error">{errors.weight_min}</p>
 
@@ -213,7 +229,6 @@ export default function AddDog() {
               type="number"
               onChange={(e) => handleChange(e)}
               placeholder="Max"
-              required
             />
             <p className="error">{errors.weight_max}</p>
           </div>
@@ -225,7 +240,6 @@ export default function AddDog() {
               type="number"
               onChange={handleChange}
               placeholder="Min"
-              required
             />
             <p className="error">{errors.years_min}</p>
 
@@ -235,7 +249,6 @@ export default function AddDog() {
               type="number"
               onChange={handleChange}
               placeholder="Max"
-              required
             />
             <p className="error">{errors.years_max}</p>
           </div>

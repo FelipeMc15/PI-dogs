@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { filterTemp } from "../../store/actions/actions";
+import { dataPage, filterTemp } from "../../store/actions/actions";
 
 export default function TemperamentFilter() {
   let dispatch = useDispatch();
@@ -14,7 +14,7 @@ export default function TemperamentFilter() {
   let handleSelect = (e) => {
     e.preventDefault();
     let tempDogs =
-      dog.data &&
+      dog.data.length !== 0 &&
       dog.data.filter((dog) => {
         return dog.temperament
           ? dog.temperament.includes(e.target.value)
@@ -29,6 +29,7 @@ export default function TemperamentFilter() {
       temperament: [...dog.temperament, e.target.value],
     });
     dispatch(filterTemp(tempDogs));
+    dispatch(dataPage(1));
   };
 
   const [temp, setTemp] = useState([]);
@@ -40,7 +41,7 @@ export default function TemperamentFilter() {
   }, []);
 
   useEffect(() => {
-    axios("http://localhost:3001/api/dogs/temps").then((res) =>
+    axios("http://localhost:3001/api/dogs").then((res) =>
       setDog({ ...dog, data: res.data })
     );
   }, []);

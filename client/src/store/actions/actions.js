@@ -28,10 +28,14 @@ export function searchDogs(search) {
     axios
       .get(`http://localhost:3001/api/dogs?name=${search}`)
       .then((dogs) => {
-        dispatch({
-          type: SEARCH_DOGS,
-          payload: dogs.data,
-        });
+        if (Array.isArray(dogs)) {
+          dispatch({
+            type: SEARCH_DOGS,
+            payload: dogs.data,
+          });
+        } else {
+          alert("No existe este perro");
+        }
       })
       .catch((error) => {
         console.log(error);
@@ -55,28 +59,6 @@ export function postDog(payload) {
     return response;
   };
 }
-
-export const nextPage = () => async (dispatch, getState) => {
-  try {
-    dispatch({
-      type: NEXT,
-      payload: 1,
-    });
-  } catch (err) {
-    console.log(err);
-  }
-};
-
-export const previousPage = () => async (dispatch, getState) => {
-  try {
-    dispatch({
-      type: PREVIOUS,
-      payload: 1,
-    });
-  } catch (err) {
-    console.log(err);
-  }
-};
 
 export function filterPeso(payload) {
   return {
@@ -108,7 +90,7 @@ export function database(payload) {
 
 export function dogs() {
   return function (dispatch) {
-    axios.get(`http://localhost:3001/api/dogs/temps`).then((dogs) => {
+    axios.get(`http://localhost:3001/api/dogs`).then((dogs) => {
       dispatch({
         type: DOGS,
         payload: dogs.data,

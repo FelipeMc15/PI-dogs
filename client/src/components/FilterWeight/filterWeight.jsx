@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { filterPeso } from "../../store/actions/actions";
+import { dataPage, filterPeso } from "../../store/actions/actions";
 
 export default function WeightFilter() {
   let dispatch = useDispatch();
@@ -7,6 +7,7 @@ export default function WeightFilter() {
   const handleSelect = (e) => {
     e.preventDefault();
     dispatch(filterPeso(e.target.value));
+    dispatch(dataPage(1));
   };
 
   return (
