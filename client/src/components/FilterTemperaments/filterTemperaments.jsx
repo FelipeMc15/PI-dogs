@@ -35,15 +35,11 @@ export default function TemperamentFilter() {
   const [temp, setTemp] = useState([]);
 
   useEffect(() => {
-    axios("http://localhost:3001/api/temperaments").then((res) =>
-      setTemp(res.data)
-    );
+    axios("/temperaments").then((res) => setTemp(res.data));
   }, []);
 
   useEffect(() => {
-    axios("http://localhost:3001/api/dogs").then((res) =>
-      setDog({ ...dog, data: res.data })
-    );
+    axios("/dogs").then((res) => setDog({ ...dog, data: res.data }));
   }, []);
 
   const handleDelete = (e) => {

@@ -14,7 +14,7 @@ export const PAGE = "PAGE";
 
 export function fetchDogs() {
   return function (dispatch) {
-    axios.get(`http://localhost:3001/api/dogs`).then((dogs) => {
+    axios.get(`/dogs`).then((dogs) => {
       dispatch({
         type: FETCH_DOGS,
         payload: dogs.data,
@@ -26,7 +26,7 @@ export function fetchDogs() {
 export function searchDogs(search) {
   return function (dispatch) {
     axios
-      .get(`http://localhost:3001/api/dogs?name=${search}`)
+      .get(`/dogs?name=${search}`)
       .then((dogs) => {
         if (Array.isArray(dogs)) {
           dispatch({
@@ -34,7 +34,7 @@ export function searchDogs(search) {
             payload: dogs.data,
           });
         } else {
-          alert("No existe este perro");
+          alert("There is no dog");
         }
       })
       .catch((error) => {
@@ -52,10 +52,7 @@ export function sort(order) {
 
 export function postDog(payload) {
   return async function (dispatch) {
-    const response = await axios.post(
-      "http://localhost:3001/api/dogs",
-      payload
-    );
+    const response = await axios.post("/dogs", payload);
     return response;
   };
 }
@@ -90,7 +87,7 @@ export function database(payload) {
 
 export function dogs() {
   return function (dispatch) {
-    axios.get(`http://localhost:3001/api/dogs`).then((dogs) => {
+    axios.get(`/dogs`).then((dogs) => {
       dispatch({
         type: DOGS,
         payload: dogs.data,

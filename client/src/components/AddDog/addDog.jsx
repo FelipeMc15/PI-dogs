@@ -109,9 +109,7 @@ export default function AddDog() {
   let dispatch = useDispatch();
 
   useEffect(() => {
-    axios("http://localhost:3001/api/temperaments").then((res) =>
-      setTemp(res.data)
-    );
+    axios("/temperaments").then((res) => setTemp(res.data));
   }, []);
 
   let handleSelect = (e) => {

@@ -7,9 +7,7 @@ export default function DogDetail() {
   const [dog, setDog] = useState(null);
   const { id } = useParams();
   useEffect(() => {
-    axios(`http://localhost:3001/api/dogs/${id}`).then((res) =>
-      setDog(res.data)
-    );
+    axios(`/dogs/${id}`).then((res) => setDog(res.data));
   }, []);
 
   let searchTemperaments =
