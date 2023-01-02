@@ -28,13 +28,13 @@ export function searchDogs(search) {
     axios
       .get(`/dogs?name=${search}`)
       .then((dogs) => {
-        if (Array.isArray(dogs)) {
+        if (Array.isArray(dogs.data)) {
           dispatch({
             type: SEARCH_DOGS,
             payload: dogs.data,
           });
         } else {
-          alert("There is no dog");
+          alert("There no a dog");
         }
       })
       .catch((error) => {

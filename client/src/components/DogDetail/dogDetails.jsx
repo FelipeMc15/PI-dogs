@@ -8,7 +8,7 @@ export default function DogDetail() {
   const { id } = useParams();
   useEffect(() => {
     axios(`/dogs/${id}`).then((res) => setDog(res.data));
-  }, []);
+  }, [id]);
 
   let searchTemperaments =
     dog && dog.temperaments

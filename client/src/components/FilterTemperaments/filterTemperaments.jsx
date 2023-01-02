@@ -40,6 +40,7 @@ export default function TemperamentFilter() {
 
   useEffect(() => {
     axios("/dogs").then((res) => setDog({ ...dog, data: res.data }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleDelete = (e) => {
