@@ -9,7 +9,7 @@ Este proyecto tiene como objetivo mostrar y promover diferentes razas de perros,
 Para utilizar este proyecto, primero debes clonar el repositorio a tu máquina local. Luego, puedes instalar cualquier dependencia necesaria utilizando el administrador de paquetes de tu elección (como npm o pip).
 
 # Uso
-Para utilizar este proyecto, simplemente visita nuestro sitio web y explora las diferentes razas de perros. Si tienes alguna pregunta o necesitas ayuda, no dudes en ponerte en contacto conmigo a través de mi correo electrónico o en mi perfil de GitHub.
+Para utilizar este proyecto, simplemente visita nuestro sitio web y explora las diferentes razas de perros. Si tienes alguna pregunta o necesitas ayuda, no dudes en ponerte en contacto conmigo a través de mi correo electrónico, LinkedIn o en mi perfil de GitHub.
 
 # Contribución
 Aunque este es un proyecto individual, siempre estoy abierto a sugerencias y colaboraciones. Si tienes algo que quisieras aportar al proyecto, no dudes en ponerte en contacto conmigo a través de mi correo electrónico, LinkedIn o en mi perfil de GitHub.
