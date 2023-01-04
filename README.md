@@ -1,5 +1,5 @@
 
-# Proyecto de razas de perros
+# Proyecto Individual Dogs
 Un proyecto individual dedicado a mostrar y promover diferentes razas de perros.
 
 # Descripción
